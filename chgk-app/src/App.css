@@ -1,0 +1,44 @@
+.App {
+    text-align: center;
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh; /* Оставляем для полного фона */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Размещаем элементы вверху */
+    font-size: calc(10px + 2vmin);
+    color: rgb(255, 255, 255);
+    padding-top: 20px; /* Добавляем отступ сверху */
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+p {
+    font-size: 18px;
+    width: 80%;
+    max-width: 600px;
+    margin: 10px auto;
+}
+
+.submit-button,
+.next-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+    .submit-button:hover,
+    .next-button:hover {
+        background-color: #0056b3;
+    }
