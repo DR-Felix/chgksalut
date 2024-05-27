@@ -3,7 +3,7 @@ import { createAssistant, createSmartappDebugger } from '@salutejs/client';
 import './App.css';
 import questions from './questions.json';
 
-const initializeAssistant = (getState /*: any*/) => {
+const initializeAssistant = (getState) => {
     if (process.env.NODE_ENV === 'development') {
         return createSmartappDebugger({
             token: process.env.REACT_APP_TOKEN ?? '',
@@ -24,13 +24,12 @@ export class App extends React.Component {
             answer: '',
             feedback: '',
             attemptCount: 0,
-            correctAnswer: '',
             comment: '',
         };
 
         this.assistant = initializeAssistant(() => this.getStateForAssistant());
 
-        this.assistant.on('data', (event /*: any*/) => {
+        this.assistant.on('data', (event) => {
             console.log(`assistant.on(data)`, event);
             if (event.type === 'character') {
                 console.log(`assistant.on(data): character: "${event?.character?.id}"`);
@@ -61,7 +60,12 @@ export class App extends React.Component {
     }
 
     componentDidMount() {
+        this.adjustFontSize();
         console.log('componentDidMount');
+    }
+
+    componentDidUpdate() {
+        this.adjustFontSize();
     }
 
     getRandomIndex() {
@@ -110,24 +114,19 @@ export class App extends React.Component {
 
         if (correctAnswers.includes(userAnswer)) {
             this.setState({
-                feedback: 'Правильно!',
+                feedback: '<span class="bold-feedback">Правильный ответ!</span>',
                 attemptCount: 0,
                 comment: currentQuestion.questionComment,
-                correctAnswer: '',
             });
         } else {
-            if (attemptCount === 0) {
-                this.setState({
-                    feedback: 'Неправильно. Попробуйте ещё раз.',
-                    attemptCount: 1,
-                });
-            } else {
-                this.setState({
-                    feedback: 'Неправильно. Правильный ответ:',
-                    correctAnswer: currentQuestion.questionAnswer,
-                    comment: currentQuestion.questionComment,
-                });
+            let feedbackMessage = '<span class="bold-feedback">Неправильный ответ.</span>';
+            if (attemptCount === 1) {
+                feedbackMessage += ` <span class="bold-feedback">Правильный ответ:</span> ${currentQuestion.questionAnswer}. ${currentQuestion.questionComment}`;
             }
+            this.setState({
+                feedback: feedbackMessage,
+                attemptCount: attemptCount + 1,
+            });
         }
     }
 
@@ -136,7 +135,6 @@ export class App extends React.Component {
             currentQuestionIndex: this.getRandomIndex(),
             answer: '',
             feedback: '',
-            correctAnswer: '',
             attemptCount: 0,
             comment: '',
         });
@@ -150,26 +148,52 @@ export class App extends React.Component {
         this.check_answer({ answer: this.state.answer });
     };
 
+    adjustFontSize = () => {
+        const questionText = document.querySelector('.question-text');
+        const container = questionText.parentElement;
+        let fontSize = 16; // начальный размер шрифта
+
+        questionText.style.fontSize = `${fontSize}px`;
+
+        while (questionText.scrollHeight > container.clientHeight && fontSize > 10) {
+            fontSize -= 1;
+            questionText.style.fontSize = `${fontSize}px`;
+        }
+    };
+
     render() {
-        const { currentQuestionIndex, answer, feedback, correctAnswer, comment } = this.state;
+        const { currentQuestionIndex, answer, feedback } = this.state;
 
         return (
             <div className="App">
                 <header className="App-header">
-                    <h1>Что? Где? Когда?</h1>
-                    <p>{questions[currentQuestionIndex].questionText}</p>
-                    <input
-                        type="text"
-                        value={answer}
-                        onChange={this.handleChange}
-                        placeholder="Введите ответ"
-                    />
-                    <button className="submit-button" onClick={this.handleSubmit}>Проверить ответ</button>
-                    <p>{feedback}</p>
-                    {feedback === 'Неправильно. Правильный ответ:' && <p>{correctAnswer}</p>}
-                    {comment && <p>{comment}</p>}
-                    <button className="next-button" onClick={() => this.next_question()}>Следующий случайный вопрос</button>
+                    <h1>ЧГК, салют!</h1>
+                    <p>Проверь свой уровень эрудиции и знаний!</p>
                 </header>
+                <div className="question-container">
+                    <div className="question-text">
+                        {questions[currentQuestionIndex].questionText}
+                    </div>
+                    <div className="question-feedback">
+                        <div dangerouslySetInnerHTML={{ __html: feedback }}></div>
+                        {!feedback && (
+                            <p className="initial-comment">
+                                Здесь будет выведен правильный ответ и комментарий к нему.
+                            </p>
+                        )}
+                    </div>
+                </div>
+                <input
+                    type="text"
+                    value={answer}
+                    onChange={this.handleChange}
+                    placeholder="Введите свой ответ"
+                    className="answer-input"
+                />
+                <div className="buttons">
+                    <button className="submit-button" onClick={this.handleSubmit}>Проверить ответ</button>
+                    <button className="next-button" onClick={() => this.next_question()}>Следующий вопрос</button>
+                </div>
             </div>
         );
     }
