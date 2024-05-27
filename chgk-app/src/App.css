@@ -1,30 +1,80 @@
 .App {
     text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: linear-gradient(180deg, #000000, #24D193);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 20px; /* Отступ сверху, чтобы заголовки не были вплотную к верхнему краю */
 }
 
 .App-header {
-    background-color: #282c34;
-    min-height: 100vh; /* ��������� ��� ������� ���� */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* ��������� �������� ������ */
-    font-size: calc(10px + 2vmin);
-    color: rgb(255, 255, 255);
-    padding-top: 20px; /* ��������� ������ ������ */
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 20px; /* Отступ снизу для разделения заголовков и основного контента */
 }
 
-input {
-    padding: 10px;
-    font-size: 16px;
-    margin: 20px 0;
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
 }
 
 p {
-    font-size: 18px;
-    width: 80%;
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.question-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.question-text,
+.question-feedback {
+    width: 300px;
+    min-height: 150px; /* Минимальная высота */
+    background-color: #ffffff;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 16px;
+    overflow-wrap: break-word;
+    margin: 0 10px; /* Отступы между блоками по горизонтали */
+    border-radius: 15px;
+}
+
+.initial-comment {
+    font-style: italic; /* Курсив для начального текста */
+    color: gray; /* Цвет начального текста */
+}
+
+.bold-feedback {
+    font-weight: bold; /* Жирный шрифт для обратной связи */
+}
+
+.answer-input {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
     max-width: 600px;
-    margin: 10px auto;
+    margin-top: 20px;
 }
 
 .submit-button,
@@ -32,13 +82,15 @@ p {
     background-color: #007bff;
     color: #fff;
     border: none;
+    border-radius: 15px;
     padding: 10px 20px;
     font-size: 18px;
-    margin-top: 20px;
     cursor: pointer;
+    color: #ffffff;
+    background-color: #50c89c;
 }
 
-    .submit-button:hover,
-    .next-button:hover {
-        background-color: #0056b3;
-    }
+.submit-button:hover,
+.next-button:hover {
+    background-color: #0056b3;
+}
