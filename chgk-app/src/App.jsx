@@ -25,6 +25,7 @@ export class App extends React.Component {
             feedback: '',
             attemptCount: 0,
             comment: '',
+            hasAnswered: false,
         };
 
         this.assistant = initializeAssistant(() => this.getStateForAssistant());
@@ -107,27 +108,22 @@ export class App extends React.Component {
 
     check_answer(action) {
         console.log('check_answer', action);
-        const { currentQuestionIndex, attemptCount, answer } = this.state;
+        const { currentQuestionIndex, answer } = this.state;
         const currentQuestion = questions[currentQuestionIndex];
         const correctAnswers = currentQuestion.questionAnswer.split(';').map(ans => ans.trim().toLowerCase());
         const userAnswer = action.answer || answer.trim().toLowerCase();
 
+        let feedbackMessage;
         if (correctAnswers.includes(userAnswer)) {
-            this.setState({
-                feedback: '<span class="bold-feedback">Правильный ответ!</span>',
-                attemptCount: 0,
-                comment: currentQuestion.questionComment,
-            });
+            feedbackMessage = '<span class="bold-feedback">Правильный ответ!</span>';
         } else {
-            let feedbackMessage = '<span class="bold-feedback">Неправильный ответ.</span>';
-            if (attemptCount === 1) {
-                feedbackMessage += ` <span class="bold-feedback">Правильный ответ:</span> ${currentQuestion.questionAnswer}. ${currentQuestion.questionComment}`;
-            }
-            this.setState({
-                feedback: feedbackMessage,
-                attemptCount: attemptCount + 1,
-            });
+            feedbackMessage = `<span class="bold-feedback">Неправильный ответ.</span> <span class="bold-feedback">Правильный ответ:</span> ${currentQuestion.questionAnswer}. ${currentQuestion.questionComment}`;
         }
+
+        this.setState({
+            feedback: feedbackMessage,
+            hasAnswered: true,
+        });
     }
 
     next_question() {
@@ -137,6 +133,7 @@ export class App extends React.Component {
             feedback: '',
             attemptCount: 0,
             comment: '',
+            hasAnswered: false,
         });
     }
 
@@ -145,7 +142,9 @@ export class App extends React.Component {
     };
 
     handleSubmit = () => {
-        this.check_answer({ answer: this.state.answer });
+        if (!this.state.hasAnswered) {
+            this.check_answer({ answer: this.state.answer });
+        }
     };
 
     adjustFontSize = () => {
@@ -162,7 +161,7 @@ export class App extends React.Component {
     };
 
     render() {
-        const { currentQuestionIndex, answer, feedback } = this.state;
+        const { currentQuestionIndex, answer, feedback, hasAnswered } = this.state;
 
         return (
             <div className="App">
@@ -189,9 +188,10 @@ export class App extends React.Component {
                     onChange={this.handleChange}
                     placeholder="Введите свой ответ"
                     className="answer-input"
+                    disabled={hasAnswered}
                 />
                 <div className="buttons">
-                    <button className="submit-button" onClick={this.handleSubmit}>Проверить ответ</button>
+                    <button className="submit-button" onClick={this.handleSubmit} disabled={hasAnswered}>Проверить ответ</button>
                     <button className="next-button" onClick={() => this.next_question()}>Следующий вопрос</button>
                 </div>
             </div>
