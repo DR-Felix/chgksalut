@@ -111,13 +111,15 @@ export class App extends React.Component {
         const { currentQuestionIndex, answer } = this.state;
         const currentQuestion = questions[currentQuestionIndex];
         const correctAnswers = currentQuestion.questionAnswer.split(';').map(ans => ans.trim().toLowerCase());
-        const userAnswer = action.answer || answer.trim().toLowerCase();
+        const userAnswer = (action.answer || answer).trim().toLowerCase();
+        const primaryAnswer = currentQuestion.questionAnswer.split(';')[0];
+        const comment = currentQuestion.questionComment ? `. ${currentQuestion.questionComment}` : '';
 
         let feedbackMessage;
         if (correctAnswers.includes(userAnswer)) {
             feedbackMessage = '<span class="bold-feedback">Правильный ответ!</span>';
         } else {
-            feedbackMessage = `<span class="bold-feedback">Неправильный ответ.</span> <span class="bold-feedback">Правильный ответ:</span> ${currentQuestion.questionAnswer}. ${currentQuestion.questionComment}`;
+            feedbackMessage = `<span class="bold-feedback">Неправильный ответ.</span> <span class="bold-feedback">Правильный ответ:</span> ${primaryAnswer}${comment}`;
         }
 
         this.setState({
