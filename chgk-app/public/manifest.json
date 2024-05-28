@@ -3,19 +3,54 @@
   "name": "Create React App Sample",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "logo.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "logo240x240.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "240x240"
     },
     {
-      "src": "logo512.png",
+      "src": "logo416x240.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "416x240"
+    },
+    {
+      "src": "preview1280x800 - №1.png",
+      "type": "image/png",
+      "sizes": "1280x800"
+    },
+    {
+      "src": "preview1280x800 - №2.png",
+      "type": "image/png",
+      "sizes": "1280x800"
+    },
+    {
+      "src": "background1920x1080.png",
+      "type": "image/png",
+      "sizes": "1920x1080"
+    },
+    {
+      "src": "background1920x1080 - №1.png",
+      "type": "image/png",
+      "sizes": "1920x1080"
+    },
+    {
+      "src": "background1920x1080 - №2.png",
+      "type": "image/png",
+      "sizes": "1920x1080"
+    },
+    {
+      "src": "background1080x1920 - №1.png",
+      "type": "image/png",
+      "sizes": "1080x1920"
+    },
+    {
+      "src": "background1080x1920 - №2.png",
+      "type": "image/png",
+      "sizes": "1080x1920"
     }
   ],
   "start_url": ".",
