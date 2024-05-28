@@ -40,7 +40,7 @@ p {
 .question-text,
 .question-feedback {
     width: 300px;
-    min-height: 150px; /* Минимальная высота */
+    min-height: 150px;
     background-color: #ffffff;
     color: black;
     display: flex;
@@ -93,4 +93,9 @@ p {
 .submit-button:hover,
 .next-button:hover {
     background-color: #0056b3;
+}
+
+.submit-button:disabled {
+    background-color: #000000;
+    cursor: not-allowed;
 }
