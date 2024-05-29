@@ -112,7 +112,8 @@ export class App extends React.Component {
         const currentQuestion = questions[currentQuestionIndex];
         let correctAnswers = currentQuestion.questionAnswer.split(';').map(ans => ans.trim());
         const userAnswer = action.answer || answer.trim().toLowerCase();
-        const correctAnswer = correctAnswers[0]; // выбираем первый правильный ответ
+        const
+correctAnswer = correctAnswers[0]; // выбираем первый правильный ответ
         correctAnswers = currentQuestion.questionAnswer.split(';').map(ans => ans.trim().toLowerCase());
 
         let feedbackMessage;
