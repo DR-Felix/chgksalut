@@ -199,7 +199,7 @@ export class App extends React.Component {
         return (
             <div className="App">
                 <header className="App-header">
-                    <h1>ЧГК, салют!</h1>
+                    <h1>Внимание, вопрос!</h1>
                     <p>Проверь свой уровень эрудиции и знаний!</p>
                 </header>
                 <div className="question-container">
