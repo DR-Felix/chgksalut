@@ -99,3 +99,32 @@ p {
     background-color: #000000;
     cursor: not-allowed;
 }
+
+/* Добавляем стили только для мобильных устройств */
+@media (max-width: 1080px) {
+    .question-container,
+    .answer-input,
+    .buttons {
+        width: 90%; /* Уменьшаем ширину контейнеров для лучшего отображения на мобильных устройствах */
+    }
+
+    .question-container {
+        margin-top: 10px; /* Уменьшаем отступ сверху */
+        gap: 20px; /* Добавляем отступ между блоками вопроса и комментария */
+    }
+
+    .question-text {
+        margin-bottom: 20px; /* Добавляем отступ между блоками вопроса и комментария */
+    }
+
+    .buttons {
+        flex-direction: column; /* Размещаем кнопки одну под другой */
+    }
+
+    .submit-button,
+    .next-button {
+        width: 100%; /* Растягиваем кнопки на всю ширину */
+        margin-top: 10px; /* Добавляем отступ между кнопками */
+    }
+}
+
