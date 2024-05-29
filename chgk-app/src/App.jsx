@@ -189,7 +189,7 @@ export class App extends React.Component {
                 case 'Enter':
                     this.handleSubmit();
                     break;
-                case 'ArrowDown':
+                case 'ArrowUp':
                     this.next_question();
                     break;
                 default:
