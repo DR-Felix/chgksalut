@@ -108,16 +108,18 @@ export class App extends React.Component {
 
     check_answer(action) {
         console.log('check_answer', action);
-        const { currentQuestionIndex, answer } = this.state;
+        let { currentQuestionIndex, answer } = this.state;
         const currentQuestion = questions[currentQuestionIndex];
-        const correctAnswers = currentQuestion.questionAnswer.split(';').map(ans => ans.trim().toLowerCase());
+        let correctAnswers = currentQuestion.questionAnswer.split(';').map(ans => ans.trim());
         const userAnswer = action.answer || answer.trim().toLowerCase();
+        const correctAnswer = correctAnswers[0]; // выбираем первый правильный ответ
+        correctAnswers = currentQuestion.questionAnswer.split(';').map(ans => ans.trim().toLowerCase());
 
         let feedbackMessage;
         if (correctAnswers.includes(userAnswer)) {
-            feedbackMessage = '<span class="bold-feedback">Правильный ответ!</span>';
+            feedbackMessage = '<span class="bold-feedback">Правильный ответ!</span> ' + currentQuestion.questionComment;
         } else {
-            feedbackMessage = `<span class="bold-feedback">Неправильный ответ.</span> <span class="bold-feedback">Правильный ответ:</span> ${currentQuestion.questionAnswer}. ${currentQuestion.questionComment}`;
+            feedbackMessage = `<span class="bold-feedback">Неправильный ответ.</span> <span class="bold-feedback">Правильный ответ:</span> ${correctAnswer}. ${currentQuestion.questionComment}`;
         }
 
         this.setState({
@@ -162,7 +164,18 @@ export class App extends React.Component {
 
     render() {
         const { currentQuestionIndex, answer, feedback, hasAnswered } = this.state;
-
+        window.addEventListener('keydown', (event) => {
+            switch (event.code) {
+                case 'Enter':
+                    this.handleSubmit();
+                    break;
+                case 'ArrowDown':
+                    this.next_question();
+                    break;
+                default:
+                    { };
+            }
+        });
         return (
             <div className="App">
                 <header className="App-header">
