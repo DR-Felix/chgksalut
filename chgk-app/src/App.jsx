@@ -106,6 +106,24 @@ export class App extends React.Component {
         this.setState({ answer: action.answer });
     }
 
+    _send_action_value(action_id, value) {
+        const data = {
+            action: {
+                action_id: action_id,
+                parameters: {
+                    // значение поля parameters может быть любым, но должно соответствовать серверной логике
+                    value: value, // см.файл src/sc/noteDone.sc смартаппа в Studio Code
+                },
+            },
+        };
+        const unsubscribe = this.assistant.sendData(data, (data) => {
+            // функция, вызываемая, если на sendData() был отправлен ответ
+            const { type, payload } = data;
+            console.log('sendData onData:', type, payload);
+            unsubscribe();
+        });
+    }
+
     check_answer(action) {
         console.log('check_answer', action);
         let { currentQuestionIndex, answer } = this.state;
@@ -118,8 +136,10 @@ export class App extends React.Component {
         let feedbackMessage;
         if (correctAnswers.includes(userAnswer)) {
             feedbackMessage = '<span class="bold-feedback">Правильный ответ!</span> ' + currentQuestion.questionComment;
+            this._send_action_value('done', 'Правильный ответ! ');
         } else {
             feedbackMessage = `<span class="bold-feedback">Неправильный ответ.</span> <span class="bold-feedback">Правильный ответ:</span> ${correctAnswer}. ${currentQuestion.questionComment}`;
+            this._send_action_value('done', 'Неправильный ответ. Правильный ответ: ' + correctAnswer);
         }
 
         this.setState({
