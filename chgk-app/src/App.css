@@ -8,7 +8,7 @@
     background: linear-gradient(180deg, #000000, #24D193);
     color: white;
     font-family: 'Montserrat', sans-serif;
-    padding-top: 20px; /* Отступ сверху, чтобы заголовки не были вплотную к верхнему краю */
+    padding-top: 20px; 
 }
 
 .App-header {
@@ -17,7 +17,7 @@
     align-items: center;
     padding: 20px;
     width: 100%;
-    margin-bottom: 20px; /* Отступ снизу для разделения заголовков и основного контента */
+    margin-bottom: 20px; 
 }
 
 h1 {
@@ -49,17 +49,17 @@ p {
     padding: 10px;
     font-size: 16px;
     overflow-wrap: break-word;
-    margin: 0 10px; /* Отступы между блоками по горизонтали */
+    margin: 0 10px; 
     border-radius: 15px;
 }
 
 .initial-comment {
-    font-style: italic; /* Курсив для начального текста */
-    color: gray; /* Цвет начального текста */
+    font-style: italic; 
+    color: gray; 
 }
 
 .bold-feedback {
-    font-weight: bold; /* Жирный шрифт для обратной связи */
+    font-weight: bold; 
 }
 
 .answer-input {
@@ -100,31 +100,31 @@ p {
     cursor: not-allowed;
 }
 
-/* Добавляем стили только для мобильных устройств */
+
 @media (max-width: 1080px) {
     .question-container,
     .answer-input,
     .buttons {
-        width: 90%; /* Уменьшаем ширину контейнеров для лучшего отображения на мобильных устройствах */
+        width: 90%;
     }
 
     .question-container {
-        margin-top: 10px; /* Уменьшаем отступ сверху */
-        gap: 20px; /* Добавляем отступ между блоками вопроса и комментария */
+        margin-top: 10px;
+        gap: 20px;
     }
 
     .question-text {
-        margin-bottom: 20px; /* Добавляем отступ между блоками вопроса и комментария */
+        margin-bottom: 20px; 
     }
 
     .buttons {
-        flex-direction: column; /* Размещаем кнопки одну под другой */
+        flex-direction: column; 
     }
 
     .submit-button,
     .next-button {
-        width: 100%; /* Растягиваем кнопки на всю ширину */
-        margin-top: 10px; /* Добавляем отступ между кнопками */
+        width: 100%; 
+        margin-top: 10px; 
     }
 }
 
