@@ -136,10 +136,10 @@ export class App extends React.Component {
         let feedbackMessage;
         if (correctAnswers.includes(userAnswer)) {
             feedbackMessage = '<span class="bold-feedback">Правильный ответ!</span> ' + currentQuestion.questionComment;
-            this._send_action_value('done', 'Правильный ответ! ');
+            this._send_action_value('read', 'Правильный ответ! ');
         } else {
             feedbackMessage = `<span class="bold-feedback">Неправильный ответ.</span> <span class="bold-feedback">Правильный ответ:</span> ${correctAnswer}. ${currentQuestion.questionComment}`;
-            this._send_action_value('done', 'Неправильный ответ. Правильный ответ: ' + correctAnswer);
+            this._send_action_value('read', 'Неправильный ответ. Правильный ответ: ' + correctAnswer);
         }
 
         this.setState({
