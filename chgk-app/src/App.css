@@ -1,3 +1,8 @@
+html, body {
+    overflow: hidden;
+}
+
+/* Применяем остальные стили */
 .App {
     text-align: center;
     min-height: 100vh;
@@ -9,7 +14,7 @@
     color: white;
     font-family: 'Montserrat', sans-serif;
     padding-top: 20px;
-    padding-bottom: 60px; /* добавим отступ снизу */
+    padding-bottom: 60px;
 }
 
 .App-header {
@@ -23,12 +28,12 @@
 
 h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 
 p {
-    margin: 10px 0;
-    font-size: 1.2rem;
+    margin: 8px 0;
+    font-size: 1.5rem;
 }
 
 .question-container {
@@ -36,24 +41,28 @@ p {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    width: 100%;
+    width: 150%;
     max-width: 1200px;
 }
 
 .question-text,
 .question-feedback {
-    width: 300px;
-    min-height: 150px;
+    width: 400px;
+    min-height: 200px;
     background-color: #ffffff;
     color: black;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    font-size: 16px;
+    padding: 5px;
+    font-size: 15px;
     overflow-wrap: break-word;
     margin: 0 10px;
     border-radius: 15px;
+}
+
+.question-text {
+    font-size: 15px !important;
 }
 
 .initial-comment {
@@ -68,7 +77,7 @@ p {
 .answer-input {
     margin-top: 20px;
     padding: 10px;
-    font-size: 16px;
+    font-size: 25px;
     border-radius: 5px;
     max-width: 300px;
     width: 100%;
@@ -84,12 +93,12 @@ p {
 
 .submit-button,
 .next-button {
-    background-color: #50c89c; /* вернем зеленый цвет */
+    background-color: #50c89c;
     color: #fff;
     border: none;
     border-radius: 15px;
     padding: 10px 20px;
-    font-size: 18px;
+    font-size: 25px;
     cursor: pointer;
     color: #ffffff;
     max-width: 210px;
@@ -98,7 +107,7 @@ p {
 
 .submit-button:hover,
 .next-button:hover {
-    background-color: #3ba97e; /* чуть темнее зеленый для ховера */
+    background-color: #3ba97e;
 }
 
 .submit-button:disabled {
@@ -109,7 +118,7 @@ p {
 /* Правило для других разрешений */
 @media (max-width: 1080px) {
     .App {
-        padding-bottom: 80px; /* увеличение отступа для мобильных устройств */
+        padding-bottom: 80px;
     }
 
     .question-container {
