@@ -61,12 +61,18 @@ export class App extends React.Component {
     }
 
     componentDidMount() {
+        window.addEventListener('resize', this.adjustFontSize); // Добавляем обработчик изменения размера окна
         this.adjustFontSize();
         console.log('componentDidMount');
     }
 
     componentDidUpdate() {
         this.adjustFontSize();
+        console.log('componentDidUpdate');
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.adjustFontSize); // Удаляем обработчик изменения размера окна
     }
 
     getRandomIndex() {
@@ -111,13 +117,11 @@ export class App extends React.Component {
             action: {
                 action_id: action_id,
                 parameters: {
-                    // значение поля parameters может быть любым, но должно соответствовать серверной логике
-                    value: value, // см.файл src/sc/noteDone.sc смартаппа в Studio Code
+                    value: value,
                 },
             },
         };
         const unsubscribe = this.assistant.sendData(data, (data) => {
-            // функция, вызываемая, если на sendData() был отправлен ответ
             const { type, payload } = data;
             console.log('sendData onData:', type, payload);
             unsubscribe();
@@ -130,16 +134,16 @@ export class App extends React.Component {
         const currentQuestion = questions[currentQuestionIndex];
         let correctAnswers = currentQuestion.questionAnswer.split(';').map(ans => ans.trim());
         const userAnswer = action.answer || answer.trim().toLowerCase();
-        const correctAnswer = correctAnswers[0]; // выбираем первый правильный ответ
+        const correctAnswer = correctAnswers[0];
         correctAnswers = currentQuestion.questionAnswer.split(';').map(ans => ans.trim().toLowerCase());
 
         let feedbackMessage;
         if (correctAnswers.includes(userAnswer)) {
             feedbackMessage = '<span class="bold-feedback">Правильный ответ!</span> ' + currentQuestion.questionComment;
-            this._send_action_value('read', 'Правильный ответ! ');
+            this._send_action_value('done', 'Правильный ответ! ');
         } else {
             feedbackMessage = `<span class="bold-feedback">Неправильный ответ.</span> <span class="bold-feedback">Правильный ответ:</span> ${correctAnswer}. ${currentQuestion.questionComment}`;
-            this._send_action_value('read', 'Неправильный ответ. Правильный ответ: ' + correctAnswer);
+            this._send_action_value('done', 'Неправильный ответ. Правильный ответ: ' + correctAnswer);
         }
 
         this.setState({
@@ -170,15 +174,32 @@ export class App extends React.Component {
     };
 
     adjustFontSize = () => {
+        console.log('adjustFontSize called');
         const questionText = document.querySelector('.question-text');
+        if (!questionText) return;
+
         const container = questionText.parentElement;
-        let fontSize = 16; // начальный размер шрифта
+        const style = window.getComputedStyle(questionText);
+        let fontSize = parseInt(style.fontSize, 10);
+        const maxFontSize = 20; // максимальный размер шрифта
+        const minFontSize = 12; // минимальный размер шрифта
+
+        console.log(`Initial font size: ${fontSize}px`);
 
         questionText.style.fontSize = `${fontSize}px`;
 
-        while (questionText.scrollHeight > container.clientHeight && fontSize > 10) {
+        // Увеличить размер шрифта до максимального, если текст помещается
+        while (questionText.scrollHeight <= container.clientHeight && fontSize < maxFontSize) {
+            fontSize += 1;
+            questionText.style.fontSize = `${fontSize}px`;
+            console.log(`Increasing font size to: ${fontSize}px`);
+        }
+
+        // Уменьшить размер шрифта, если текст не помещается
+        while (questionText.scrollHeight > container.clientHeight && fontSize > minFontSize) {
             fontSize -= 1;
             questionText.style.fontSize = `${fontSize}px`;
+            console.log(`Decreasing font size to: ${fontSize}px`);
         }
     };
 
