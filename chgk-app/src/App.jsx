@@ -101,6 +101,9 @@ export class App extends React.Component {
                 case 'next_question':
                     return this.next_question();
 
+                case 'read_question':
+                    return this.read_question();
+
                 default:
                     throw new Error();
             }
@@ -128,6 +131,7 @@ export class App extends React.Component {
         });
     }
 
+
     check_answer(action) {
         console.log('check_answer', action);
         let { currentQuestionIndex, answer } = this.state;
@@ -140,10 +144,10 @@ export class App extends React.Component {
         let feedbackMessage;
         if (correctAnswers.includes(userAnswer)) {
             feedbackMessage = '<span class="bold-feedback">Правильный ответ!</span> ' + currentQuestion.questionComment;
-            this._send_action_value('done', 'Правильный ответ! ');
+            this._send_action_value('read', 'Правильный ответ! ');
         } else {
             feedbackMessage = `<span class="bold-feedback">Неправильный ответ.</span> <span class="bold-feedback">Правильный ответ:</span> ${correctAnswer}. ${currentQuestion.questionComment}`;
-            this._send_action_value('done', 'Неправильный ответ. Правильный ответ: ' + correctAnswer);
+            this._send_action_value('read', 'Неправильный ответ. Правильный ответ: ' + correctAnswer);
         }
 
         this.setState({
@@ -161,6 +165,12 @@ export class App extends React.Component {
             comment: '',
             hasAnswered: false,
         });
+    }
+
+    read_question() {
+        let { currentQuestionIndex } = this.state;
+        const currentQuestion = questions[currentQuestionIndex];
+        this._send_action_value('read_q', currentQuestion.questionText);
     }
 
     handleChange = (event) => {
@@ -184,7 +194,6 @@ export class App extends React.Component {
         const maxFontSize = 20; // максимальный размер шрифта
         const minFontSize = 12; // минимальный размер шрифта
 
-        console.log(`Initial font size: ${fontSize}px`);
 
         questionText.style.fontSize = `${fontSize}px`;
 
@@ -192,14 +201,12 @@ export class App extends React.Component {
         while (questionText.scrollHeight <= container.clientHeight && fontSize < maxFontSize) {
             fontSize += 1;
             questionText.style.fontSize = `${fontSize}px`;
-            console.log(`Increasing font size to: ${fontSize}px`);
         }
 
         // Уменьшить размер шрифта, если текст не помещается
         while (questionText.scrollHeight > container.clientHeight && fontSize > minFontSize) {
             fontSize -= 1;
             questionText.style.fontSize = `${fontSize}px`;
-            console.log(`Decreasing font size to: ${fontSize}px`);
         }
     };
 
@@ -209,9 +216,6 @@ export class App extends React.Component {
             switch (event.code) {
                 case 'Enter':
                     this.handleSubmit();
-                    break;
-                case 'ArrowUp':
-                    this.next_question();
                     break;
                 default:
                     { };
