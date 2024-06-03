@@ -115,30 +115,31 @@ p {
     cursor: not-allowed;
 }
 
-/* Правило для других разрешений */
-@media (max-width: 1080px) {
-    .App {
-        padding-bottom: 80px;
+
+@media (max-width: 1080px) and (max-height: 1920px) {
+
+    html, body {
+        overflow: auto;
     }
 
     .question-container {
-        flex-direction: column;
+        width: 80%;
+        max-width: 80%;
     }
 
     .question-text,
     .question-feedback {
-        width: 90%;
-        margin: 10px 0;
+        width: 80%;
+        min-height: 180px;
+        font-size: 16px;
     }
 
-    .buttons {
-        flex-direction: column;
-        align-items: center;
+    .answer-input {
+        margin-top: 15px;
+        padding: 12px;
+        font-size: 22px;
     }
-
-    .submit-button,
-    .next-button {
-        width: 90%;
-        margin-top: 10px;
+    .submit-button, .next-button {
+        margin: 8px;
     }
 }
