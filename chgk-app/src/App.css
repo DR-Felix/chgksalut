@@ -1,144 +1,478 @@
-html, body {
-    overflow: hidden;
-}
+@media (min-width: 3840px) and (min-height: 2160px) {
+    html, body {
+        overflow: hidden;
+    }
 
-/* Применяем остальные стили */
-.App {
-    text-align: center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    background: linear-gradient(180deg, #000000, #24D193);
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    padding-top: 20px;
-    padding-bottom: 60px;
-}
-
-.App-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-h1 {
-    margin: 0;
-    font-size: 3rem;
-}
-
-p {
-    margin: 8px 0;
-    font-size: 1.5rem;
-}
-
-.question-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    width: 150%;
-    max-width: 1200px;
-}
-
-.question-text,
-.question-feedback {
-    width: 400px;
-    min-height: 200px;
-    background-color: #ffffff;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    font-size: 15px;
-    overflow-wrap: break-word;
-    margin: 0 10px;
-    border-radius: 15px;
-}
-
-.question-text {
-    font-size: 15px !important;
-}
-
-.initial-comment {
-    font-style: italic;
-    color: gray;
-}
-
-.bold-feedback {
-    font-weight: bold;
-}
-
-.answer-input {
-    margin-top: 20px;
-    padding: 10px;
-    font-size: 25px;
-    border-radius: 5px;
-    max-width: 300px;
-    width: 100%;
-}
-
-.buttons {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 600px;
-    margin-top: 20px;
-}
-
-.submit-button,
-.next-button {
-    background-color: #50c89c;
-    color: #fff;
-    border: none;
-    border-radius: 15px;
-    padding: 10px 20px;
-    font-size: 25px;
-    cursor: pointer;
-    color: #ffffff;
-    max-width: 210px;
-    width: 100%;
-}
-
-.submit-button:hover,
-.next-button:hover {
-    background-color: #3ba97e;
-}
-
-.submit-button:disabled {
-    background-color: #000000;
-    cursor: not-allowed;
-}
-
-/* Правило для других разрешений */
-@media (max-width: 1080px) {
     .App {
-        padding-bottom: 80px;
+        text-align: center;
+        height: 100vh; /* Используем height вместо min-height */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: linear-gradient(180deg, #000000, #24D193);
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        padding-top: 53.33px; /* Уменьшаем верхний отступ */
+        padding-bottom: 160px; /* Уменьшаем нижний отступ */
+        margin: 0; /* Удаляем отступы */
+    }
+
+    .App-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 53.33px; /* Уменьшаем отступы */
+        width: 100%;
+        margin-bottom: 53.33px; /* Уменьшаем отступ снизу */
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 8rem; /* Уменьшаем размер заголовка */
+    }
+
+    p {
+        margin: 21.33px 0; /* Уменьшаем вертикальные отступы текста */
+        font-size: 4rem; /* Уменьшаем размер текста */
     }
 
     .question-container {
-        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 53.33px; /* Уменьшаем верхний отступ */
+        width: 100%; /* Используем ширину 100% */
+        max-width: 3200px; /* Уменьшаем максимальную ширину */
     }
 
     .question-text,
     .question-feedback {
-        width: 90%;
-        margin: 10px 0;
+        width: 1066.67px; /* Уменьшаем ширину блоков вопросов и обратной связи */
+        min-height: 533.33px; /* Уменьшаем высоту блоков вопросов и обратной связи */
+        background-color: #ffffff;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 13.33px; /* Уменьшаем отступы внутри блоков */
+        font-size: 40px; /* Уменьшаем размер текста */
+        overflow-wrap: break-word;
+        margin: 0 26.67px; /* Уменьшаем горизонтальные отступы */
+        border-radius: 40px; /* Уменьшаем радиус скругления углов */
+    }
+
+    .question-text {
+        font-size: 40px !important;
+    }
+
+    .initial-comment {
+        font-style: italic;
+        color: gray;
+    }
+
+    .bold-feedback {
+        font-weight: bold;
+    }
+
+    .answer-input {
+        margin-top: 53.33px; /* Уменьшаем верхний отступ */
+        padding: 26.67px; /* Уменьшаем отступы */
+        font-size: 66.67px; /* Уменьшаем размер текстового ввода */
+        border-radius: 13.33px; /* Уменьшаем радиус скругления углов */
+        max-width: 800px; /* Уменьшаем максимальную ширину */
+        width: 100%;
     }
 
     .buttons {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 1600px; /* Уменьшаем максимальную ширину */
+        margin-top: 53.33px; /* Уменьшаем верхний отступ */
     }
 
     .submit-button,
     .next-button {
-        width: 90%;
-        margin-top: 10px;
+        background-color: #50c89c;
+        color: #fff;
+        border: none;
+        border-radius: 40px; /* Уменьшаем радиус скругления углов кнопок */
+        padding: 26.67px 53.33px; /* Уменьшаем отступы кнопок */
+        font-size: 66.67px; /* Уменьшаем размер текста кнопок */
+        cursor: pointer;
+        max-width: 840px; /* Уменьшаем максимальную ширину */
+        width: 100%;
+        margin: 30px;
+    }
+
+    .submit-button:hover,
+    .next-button:hover {
+        background-color: #3ba97e;
+    }
+
+    .submit-button:disabled {
+        background-color: #000000;
+        cursor: not-allowed;
+    }
+}
+
+@media (min-width: 1921px) and (max-width: 3839px) and (min-height: 1081px) and (max-height: 2159px) {
+
+    html, body {
+        overflow: hidden;
+    }
+
+    .App {
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: linear-gradient(180deg, #000000, #24D193);
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        padding-top: 100px;
+        padding-bottom: 120px;
+    }
+
+    .App-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 6rem;
+    }
+
+    p {
+        margin: 16px 0;
+        font-size: 3rem;
+    }
+
+    .question-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        width: 150%;
+        max-width: 2400px;
+    }
+
+    .question-text,
+    .question-feedback {
+        width: 800px;
+        min-height: 400px;
+        background-color: #ffffff;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        font-size: 30px;
+        overflow-wrap: break-word;
+        margin: 0 20px;
+        border-radius: 30px;
+    }
+
+    .question-text {
+        font-size: 30px !important;
+    }
+
+    .initial-comment {
+        font-style: italic;
+        color: gray;
+    }
+
+    .bold-feedback {
+        font-weight: bold;
+    }
+
+    .answer-input {
+        margin-top: 40px;
+        padding: 20px;
+        font-size: 50px;
+        border-radius: 10px;
+        max-width: 600px;
+        width: 100%;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 1200px;
+        margin-top: 40px;
+    }
+
+    .submit-button,
+    .next-button {
+        background-color: #50c89c;
+        color: #fff;
+        border: none;
+        border-radius: 30px;
+        padding: 20px 40px;
+        font-size: 50px;
+        cursor: pointer;
+        max-width: 420px;
+        width: 100%;
+    }
+
+    .submit-button:hover,
+    .next-button:hover {
+        background-color: #3ba97e;
+    }
+
+    .submit-button:disabled {
+        background-color: #000000;
+        cursor: not-allowed;
+    }
+}
+
+@media (max-width: 1920px) and (max-height: 1080px) {
+
+    html, body {
+        overflow: hidden;
+    }
+
+    .App {
+        text-align: center;
+        min-height: 150vh; /* Увеличиваем высоту контейнера */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: linear-gradient(180deg, #000000, #24D193);
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        padding-top: 90px; /* Увеличиваем верхний отступ */
+        padding-bottom: 90px; /* Увеличиваем нижний отступ */
+    }
+
+    .App-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 4.5rem; /* Увеличиваем размер заголовка */
+    }
+
+    p {
+        margin: 8px 0;
+        font-size: 2.25rem; /* Увеличиваем размер текста */
+    }
+
+    .question-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        width: 150%;
+        max-width: 1200px;
+    }
+
+    .question-text,
+    .question-feedback {
+        width: 600px; /* Увеличиваем ширину блоков вопросов и обратной связи */
+        min-height: 300px; /* Увеличиваем высоту блоков вопросов и обратной связи */
+        background-color: #ffffff;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        font-size: 22.5px; /* Увеличиваем размер текста в блоках */
+        overflow-wrap: break-word;
+        margin: 0 10px;
+        border-radius: 15px;
+    }
+
+    .question-text {
+        font-size: 22.5px !important;
+    }
+
+    .initial-comment {
+        font-style: italic;
+        color: gray;
+    }
+
+    .bold-feedback {
+        font-weight: bold;
+    }
+
+    .answer-input {
+        margin-top: 20px;
+        padding: 15px;
+        font-size: 37.5px; /* Увеличиваем размер текстового ввода */
+        border-radius: 7.5px; /* Можно также увеличить скругление углов */
+        max-width: 450px; /* Увеличиваем максимальную ширину */
+        width: 100%;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 900px; /* Увеличиваем максимальную ширину кнопок */
+        margin-top: 20px;
+    }
+
+    .submit-button,
+    .next-button {
+        background-color: #50c89c;
+        color: #fff;
+        border: none;
+        border-radius: 22.5px; /* Увеличиваем радиус скругления углов кнопок */
+        padding: 15px 30px; /* Увеличиваем отступы кнопок */
+        font-size: 37.5px; /* Увеличиваем размер текста кнопок */
+        cursor: pointer;
+        color: #ffffff;
+        max-width: 315px; /* Увеличиваем максимальную ширину кнопок */
+        width: 100%;
+    }
+
+    .submit-button:hover,
+    .next-button:hover {
+        background-color: #3ba97e;
+    }
+
+    .submit-button:disabled {
+        background-color: #000000;
+        cursor: not-allowed;
+    }
+
+}
+
+@media (max-width: 1080px) and (max-height: 1920px) {
+
+    html, body {
+        overflow: auto;
+    }
+
+    .App {
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: linear-gradient(180deg, #000000, #24D193);
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        padding-top: 20px;
+        height: 100hv;
+    }
+
+    .App-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 3rem;
+    }
+
+    p {
+        margin: 8px 0;
+        font-size: 1.5rem;
+    }
+
+    .question-container {
+        display: flex;
+        flex-direction: column; /* Располагаем блоки вопросов и комментариев друг под другом */
+        justify-content: center; /* Выравниваем по центру */
+        align-items: center;
+        margin-top: 20px;
+        width: 90%; /* Ширина блока 90% от родительского контейнера */
+        max-width: 90%; /* Максимальная ширина блока 90% от родительского контейнера */
+    }
+
+    .question-text,
+    .question-feedback {
+        width: 100%; /* Ширина блоков вопросов и комментариев равна 100% от родительского контейнера */
+        max-width: 100%; /* Максимальная ширина блоков вопросов и комментариев равна 100% от родительского контейнера */
+        min-height: 200px;
+        background-color: #ffffff;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        font-size: 15px;
+        overflow-wrap: break-word;
+        margin: 10px 0; /* Отступы сверху и снизу для блоков вопросов и комментариев */
+        border-radius: 15px;
+    }
+
+    .question-text {
+        font-size: 15px !important;
+    }
+
+    .initial-comment {
+        font-style: italic;
+        color: gray;
+    }
+
+    .bold-feedback {
+        font-weight: bold;
+    }
+
+    .answer-input {
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 25px;
+        border-radius: 5px;
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 600px;
+        margin-top: 20px;
+    }
+
+    .submit-button,
+    .next-button {
+        background-color: #50c89c;
+        color: #fff;
+        border: none;
+        border-radius: 15px;
+        padding: 10px 20px;
+        font-size: 25px;
+        cursor: pointer;
+        color: #ffffff;
+        max-width: 210px;
+        width: 100%;
+        margin: 10px;
+    }
+
+    .submit-button:hover,
+    .next-button:hover {
+        background-color: #3ba97e;
+    }
+
+    .submit-button:disabled {
+        background-color: #000000;
+        cursor: not-allowed;
     }
 }
