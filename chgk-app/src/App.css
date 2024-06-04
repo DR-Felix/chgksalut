@@ -1,144 +1,382 @@
-html, body {
-    overflow: hidden;
-}
+@media (min-width: 3840px) and (min-height: 2160px) {
+    html, body {
+        overflow: hidden;
+    }
 
-/* Применяем остальные стили */
-.App {
-    text-align: center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    background: linear-gradient(180deg, #000000, #24D193);
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    padding-top: 20px;
-    padding-bottom: 60px;
-}
-
-.App-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-h1 {
-    margin: 0;
-    font-size: 3rem;
-}
-
-p {
-    margin: 8px 0;
-    font-size: 1.5rem;
-}
-
-.question-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    width: 150%;
-    max-width: 1200px;
-}
-
-.question-text,
-.question-feedback {
-    width: 400px;
-    min-height: 200px;
-    background-color: #ffffff;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    font-size: 15px;
-    overflow-wrap: break-word;
-    margin: 0 10px;
-    border-radius: 15px;
-}
-
-.question-text {
-    font-size: 15px !important;
-}
-
-.initial-comment {
-    font-style: italic;
-    color: gray;
-}
-
-.bold-feedback {
-    font-weight: bold;
-}
-
-.answer-input {
-    margin-top: 20px;
-    padding: 10px;
-    font-size: 25px;
-    border-radius: 5px;
-    max-width: 300px;
-    width: 100%;
-}
-
-.buttons {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 600px;
-    margin-top: 20px;
-}
-
-.submit-button,
-.next-button {
-    background-color: #50c89c;
-    color: #fff;
-    border: none;
-    border-radius: 15px;
-    padding: 10px 20px;
-    font-size: 25px;
-    cursor: pointer;
-    color: #ffffff;
-    max-width: 210px;
-    width: 100%;
-}
-
-.submit-button:hover,
-.next-button:hover {
-    background-color: #3ba97e;
-}
-
-.submit-button:disabled {
-    background-color: #000000;
-    cursor: not-allowed;
-}
-
-/* Правило для других разрешений */
-@media (max-width: 1080px) {
     .App {
-        padding-bottom: 80px;
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: linear-gradient(180deg, #000000, #24D193);
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        padding-top: 320px;
+        padding-bottom: 960px;
+    }
+
+    .App-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 320px;
+        width: 100%;
+        margin-bottom: 320px;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 48rem;
+    }
+
+    p {
+        margin: 128px 0;
+        font-size: 24rem;
     }
 
     .question-container {
-        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 320px;
+        width: 150%;
+        max-width: 19200px;
     }
 
     .question-text,
     .question-feedback {
-        width: 90%;
-        margin: 10px 0;
+        width: 6400px;
+        min-height: 3200px;
+        background-color: #ffffff;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 80px;
+        font-size: 240px;
+        overflow-wrap: break-word;
+        margin: 0 160px;
+        border-radius: 240px;
+    }
+
+    .question-text {
+        font-size: 240px !important;
+    }
+
+    .initial-comment {
+        font-style: italic;
+        color: gray;
+    }
+
+    .bold-feedback {
+        font-weight: bold;
+    }
+
+    .answer-input {
+        margin-top: 320px;
+        padding: 160px;
+        font-size: 400px;
+        border-radius: 80px;
+        max-width: 4800px;
+        width: 100%;
     }
 
     .buttons {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 9600px;
+        margin-top: 320px;
     }
 
     .submit-button,
     .next-button {
-        width: 90%;
-        margin-top: 10px;
+        background-color: #50c89c;
+        color: #fff;
+        border: none;
+        border-radius: 240px;
+        padding: 160px 320px;
+        font-size: 400px;
+        cursor: pointer;
+        max-width: 3360px;
+        width: 100%;
+    }
+
+    .submit-button:hover,
+    .next-button:hover {
+        background-color: #3ba97e;
+    }
+
+    .submit-button:disabled {
+        background-color: #000000;
+        cursor: not-allowed;
+    }
+}
+
+@media (min-width: 1920px) and (min-height: 1080px) {
+    html, body {
+        overflow: hidden;
+    }
+
+    .App {
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: linear-gradient(180deg, #000000, #24D193);
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        padding-top: 40px;
+        padding-bottom: 120px;
+    }
+
+    .App-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 6rem;
+    }
+
+    p {
+        margin: 16px 0;
+        font-size: 3rem;
+    }
+
+    .question-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        width: 150%;
+        max-width: 2400px;
+    }
+
+    .question-text,
+    .question-feedback {
+        width: 800px;
+        min-height: 400px;
+        background-color: #ffffff;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        font-size: 30px;
+        overflow-wrap: break-word;
+        margin: 0 20px;
+        border-radius: 30px;
+    }
+
+    .question-text {
+        font-size: 30px !important;
+    }
+
+    .initial-comment {
+        font-style: italic;
+        color: gray;
+    }
+
+    .bold-feedback {
+        font-weight: bold;
+    }
+
+    .answer-input {
+        margin-top: 40px;
+        padding: 20px;
+        font-size: 50px;
+        border-radius: 10px;
+        max-width: 600px;
+        width: 100%;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 1200px;
+        margin-top: 40px;
+    }
+
+    .submit-button,
+    .next-button {
+        background-color: #50c89c;
+        color: #fff;
+        border: none;
+        border-radius: 30px;
+        padding: 20px 40px;
+        font-size: 50px;
+        cursor: pointer;
+        max-width: 420px;
+        width: 100%;
+    }
+
+    .submit-button:hover,
+    .next-button:hover {
+        background-color: #3ba97e;
+    }
+
+    .submit-button:disabled {
+        background-color: #000000;
+        cursor: not-allowed;
+    }
+}
+
+@media (max-width: 1920px) and (max-height: 1080px) {
+
+    html, body {
+        overflow: hidden;
+    }
+
+    /* Применяем остальные стили */
+    .App {
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: linear-gradient(180deg, #000000, #24D193);
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        padding-top: 20px;
+        padding-bottom: 60px;
+    }
+
+    .App-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 3rem;
+    }
+
+    p {
+        margin: 8px 0;
+        font-size: 1.5rem;
+    }
+
+    .question-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        width: 150%;
+        max-width: 1200px;
+    }
+
+    .question-text,
+    .question-feedback {
+        width: 400px;
+        min-height: 200px;
+        background-color: #ffffff;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        font-size: 15px;
+        overflow-wrap: break-word;
+        margin: 0 10px;
+        border-radius: 15px;
+    }
+
+    .question-text {
+        font-size: 15px !important;
+    }
+
+    .initial-comment {
+        font-style: italic;
+        color: gray;
+    }
+
+    .bold-feedback {
+        font-weight: bold;
+    }
+
+    .answer-input {
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 25px;
+        border-radius: 5px;
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 600px;
+        margin-top: 20px;
+    }
+
+    .submit-button,
+    .next-button {
+        background-color: #50c89c;
+        color: #fff;
+        border: none;
+        border-radius: 15px;
+        padding: 10px 20px;
+        font-size: 25px;
+        cursor: pointer;
+        color: #ffffff;
+        max-width: 210px;
+        width: 100%;
+    }
+
+    .submit-button:hover,
+    .next-button:hover {
+        background-color: #3ba97e;
+    }
+
+    .submit-button:disabled {
+        background-color: #000000;
+        cursor: not-allowed;
+    }
+
+}
+
+@media (max-width: 1080px) and (max-height: 1920px) {
+
+    html, body {
+        overflow: auto;
+    }
+
+    .question-container {
+        width: 80%;
+        max-width: 80%;
+    }
+
+    .question-text,
+    .question-feedback {
+        width: 80%;
+        min-height: 180px;
+        font-size: 16px;
+    }
+
+    .answer-input {
+        margin-top: 15px;
+        padding: 12px;
+        font-size: 22px;
+    }
+    .submit-button, .next-button {
+        margin: 8px;
     }
 }
