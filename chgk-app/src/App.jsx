@@ -146,8 +146,14 @@ export class App extends React.Component {
             feedbackMessage = '<span class="bold-feedback">Правильный ответ!</span> ' + currentQuestion.questionComment;
             this._send_action_value('read', 'Правильный ответ! ');
         } else {
-            feedbackMessage = `<span class="bold-feedback">Неправильный ответ.</span> <span class="bold-feedback">Правильный ответ:</span> ${correctAnswer}. ${currentQuestion.questionComment}`;
-            this._send_action_value('read', 'Неправильный ответ. Правильный ответ: ' + correctAnswer);
+            if (userAnswer == "") {
+                feedbackMessage = `<span class="bold-feedback">Правильный ответ:</span> ${correctAnswer}. ${currentQuestion.questionComment}`;
+                this._send_action_value('read', 'Правильный ответ: ' + correctAnswer);
+            }
+            else {
+                feedbackMessage = `<span class="bold-feedback">Неправильный ответ.</span> <span class="bold-feedback">Правильный ответ:</span> ${correctAnswer}. ${currentQuestion.questionComment}`;
+                this._send_action_value('read', 'Неправильный ответ. Правильный ответ: ' + correctAnswer);
+            }
         }
 
         this.setState({
