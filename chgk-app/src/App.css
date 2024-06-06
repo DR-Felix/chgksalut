@@ -1,5 +1,5 @@
 @media (min-width: 3840px) and (min-height: 2160px) {
-    
+
     :root {
         --max-font-size: 60px;
         --max2-font-size: 50px;
@@ -112,15 +112,15 @@
         margin: 30px;
     }
 
-    .submit-button:hover,
-    .next-button:hover {
-        background-color: #3ba97e;
-    }
+        .submit-button:hover,
+        .next-button:hover {
+            background-color: #3ba97e;
+        }
 
-    .submit-button:disabled {
-        background-color: #000000;
-        cursor: not-allowed;
-    }
+        .submit-button:disabled {
+            background-color: #000000;
+            cursor: not-allowed;
+        }
 }
 
 @media (min-width: 1921px) and (max-width: 3839px) and (min-height: 1081px) and (max-height: 2159px) {
@@ -234,15 +234,15 @@
         width: 100%;
     }
 
-    .submit-button:hover,
-    .next-button:hover {
-        background-color: #3ba97e;
-    }
+        .submit-button:hover,
+        .next-button:hover {
+            background-color: #3ba97e;
+        }
 
-    .submit-button:disabled {
-        background-color: #000000;
-        cursor: not-allowed;
-    }
+        .submit-button:disabled {
+            background-color: #000000;
+            cursor: not-allowed;
+        }
 }
 
 @media (max-width: 1920px) and (max-height: 1080px) {
@@ -358,16 +358,15 @@
         width: 100%;
     }
 
-    .submit-button:hover,
-    .next-button:hover {
-        background-color: #3ba97e;
-    }
+        .submit-button:hover,
+        .next-button:hover {
+            background-color: #3ba97e;
+        }
 
-    .submit-button:disabled {
-        background-color: #000000;
-        cursor: not-allowed;
-    }
-
+        .submit-button:disabled {
+            background-color: #000000;
+            cursor: not-allowed;
+        }
 }
 
 @media (max-width: 1080px) and (max-height: 1920px) {
@@ -387,7 +386,7 @@
         color: white;
         font-family: 'Montserrat', sans-serif;
         padding-top: 20px;
-        height: 100hv;
+        height: 100vh;
     }
 
     .App-header {
@@ -481,13 +480,13 @@
         margin: 10px;
     }
 
-    .submit-button:hover,
-    .next-button:hover {
-        background-color: #3ba97e;
-    }
+        .submit-button:hover,
+        .next-button:hover {
+            background-color: #3ba97e;
+        }
 
-    .submit-button:disabled {
-        background-color: #000000;
-        cursor: not-allowed;
-    }
+        .submit-button:disabled {
+            background-color: #000000;
+            cursor: not-allowed;
+        }
 }
