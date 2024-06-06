@@ -184,31 +184,44 @@ export class App extends React.Component {
     };
 
     adjustFontSize = () => {
-        console.log('adjustFontSize called');
         const questionText = document.querySelector('.question-text');
         if (!questionText) return;
-
+    
         const container = questionText.parentElement;
-        const style = window.getComputedStyle(questionText);
-        let fontSize = parseInt(style.fontSize, 10);
-        const maxFontSize = 20; // максимальный размер шрифта
-        const minFontSize = 12; // минимальный размер шрифта
+        const maxFontSize = 40; // максимальный размер шрифта
+        const minFontSize = 22.5; // минимальный размер шрифта
+    
+        // Функция для подсчета количества слов в тексте
+        const countWords = (text) => {
+            return text.trim().split(/\s+/).length;
+        };
+        // Функция для установки размера шрифта исходя из количества слов
+        const setFontSize = () => {
+            const text = questionText.textContent;
+            const wordCount = countWords(text);
+            
+            let fontSize;
+            // Устанавливаем размер шрифта в зависимости от количества слов
+            if (wordCount >= 0 && wordCount <= 20) {
+                fontSize = getComputedStyle(document.documentElement).getPropertyValue('--max-font-size');
+            } else if (wordCount > 20 && wordCount <= 30) {
+                fontSize = getComputedStyle(document.documentElement).getPropertyValue('--max2-font-size');
+            } else if (wordCount > 30 && wordCount <= 35) {
+                fontSize = getComputedStyle(document.documentElement).getPropertyValue('--mid-font-size');
+            } else if (wordCount > 35 && wordCount <= 40) {
+                fontSize = getComputedStyle(document.documentElement).getPropertyValue('--min2-font-size');
+            } else {
+                fontSize = getComputedStyle(document.documentElement).getPropertyValue('--min-font-size');
+            }
 
-
-        questionText.style.fontSize = `${fontSize}px`;
-
-        // Увеличить размер шрифта до максимального, если текст помещается
-        while (questionText.scrollHeight <= container.clientHeight && fontSize < maxFontSize) {
-            fontSize += 1;
-            questionText.style.fontSize = `${fontSize}px`;
-        }
-
-        // Уменьшить размер шрифта, если текст не помещается
-        while (questionText.scrollHeight > container.clientHeight && fontSize > minFontSize) {
-            fontSize -= 1;
-            questionText.style.fontSize = `${fontSize}px`;
-        }
+            questionText.style.fontSize = fontSize;
+        };
+    
+        setFontSize();
+        window.addEventListener('load', setFontSize);
+        window.addEventListener('resize', setFontSize);
     };
+    
 
     render() {
         const { currentQuestionIndex, answer, feedback, hasAnswered } = this.state;
