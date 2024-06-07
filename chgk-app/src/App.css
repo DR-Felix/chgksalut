@@ -112,15 +112,32 @@
         margin: 30px;
     }
 
-        .submit-button:hover,
-        .next-button:hover {
-            background-color: #3ba97e;
-        }
+    .submit-button:hover,
+    .next-button:hover {
+        background-color: #3ba97e;
+    }
 
-        .submit-button:disabled {
-            background-color: #000000;
-            cursor: not-allowed;
-        }
+    .submit-button:disabled {
+        background-color: #000000;
+        cursor: not-allowed;
+    }
+
+    .keyboard-visible .answer-input {
+        position: fixed;
+        bottom: 2000px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        margin: 0;
+    }
+    
+    .keyboard-visible .buttons {
+        position: relative;
+        bottom: initial;
+        left: initial;
+        transform: none;
+        width: 100%;
+    }
 }
 
 @media (min-width: 1921px) and (max-width: 3839px) and (min-height: 1081px) and (max-height: 2159px) {
@@ -234,19 +251,36 @@
         width: 100%;
     }
 
-        .submit-button:hover,
-        .next-button:hover {
-            background-color: #3ba97e;
-        }
+    .submit-button:hover,
+    .next-button:hover {
+        background-color: #3ba97e;
+    }
 
-        .submit-button:disabled {
-            background-color: #000000;
-            cursor: not-allowed;
-        }
+    .submit-button:disabled {
+        background-color: #000000;
+        cursor: not-allowed;
+    }
+
+    .keyboard-visible .answer-input {
+        position: fixed;
+        bottom: 1000px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        margin: 0;
+    }
+    
+    .keyboard-visible .buttons {
+        position: relative;
+        bottom: initial;
+        left: initial;
+        transform: none;
+        width: 100%;
+    }
 }
 
-@media (max-width: 1920px) and (max-height: 1080px) {
 
+@media (max-width: 1920px) and (max-height: 1080px) {
     :root {
         --max-font-size: 40px;
         --max2-font-size: 30px;
@@ -317,7 +351,6 @@
         border-radius: 15px;
     }
 
-
     .initial-comment {
         font-style: italic;
         color: gray;
@@ -358,15 +391,32 @@
         width: 100%;
     }
 
-        .submit-button:hover,
-        .next-button:hover {
-            background-color: #3ba97e;
-        }
+    .submit-button:hover,
+    .next-button:hover {
+        background-color: #3ba97e;
+    }
 
-        .submit-button:disabled {
-            background-color: #000000;
-            cursor: not-allowed;
-        }
+    .submit-button:disabled {
+        background-color: #000000;
+        cursor: not-allowed;
+    }
+
+    .keyboard-visible .answer-input {
+        position: fixed;
+        bottom: 500px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        margin: 0;
+    }
+    
+    .keyboard-visible .buttons {
+        position: relative;
+        bottom: initial;
+        left: initial;
+        transform: none;
+        width: 100%;
+    }
 }
 
 @media (max-width: 1080px) and (max-height: 1920px) {
