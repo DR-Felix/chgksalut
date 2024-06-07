@@ -26,6 +26,7 @@ export class App extends React.Component {
             attemptCount: 0,
             comment: '',
             hasAnswered: false,
+            isKeyboardVisible: false, // Флаг видимости виртуальной клавиатуры
         };
 
         this.assistant = initializeAssistant(() => this.getStateForAssistant());
@@ -61,23 +62,43 @@ export class App extends React.Component {
     }
 
     componentDidMount() {
-        window.addEventListener('resize', this.adjustFontSize); // Добавляем обработчик изменения размера окна
+        window.addEventListener('resize', this.adjustFontSize);
         this.adjustFontSize();
-        console.log('componentDidMount');
+
+        // Добавляем обработчики событий для отслеживания видимости клавиатуры
+        window.addEventListener('focus', this.handleFocus);
+        window.addEventListener('blur', this.handleBlur);
     }
 
     componentDidUpdate() {
+        // Добавляем обработчики событий для отслеживания видимости клавиатуры
         this.adjustFontSize();
+        window.addEventListener('focus', this.handleFocus);
         console.log('componentDidUpdate');
-    }
+        window.addEventListener('blur', this.handleBlur);
+     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', this.adjustFontSize); // Удаляем обработчик изменения размера окна
+        window.removeEventListener('resize', this.adjustFontSize);
+
+        // Удаляем обработчики событий при размонтировании компонента
+        window.removeEventListener('focus', this.handleFocus);
+        window.removeEventListener('blur', this.handleBlur);
     }
 
     getRandomIndex() {
         return Math.floor(Math.random() * questions.length);
     }
+
+    // Функция для обработки события фокуса на поле ввода
+    handleFocus = () => {
+        this.setState({ isKeyboardVisible: true });
+    };
+
+    // Функция для обработки события потери фокуса на поле ввода
+    handleBlur = () => {
+        this.setState({ isKeyboardVisible: false });
+    };
 
     getStateForAssistant() {
         const state = {
