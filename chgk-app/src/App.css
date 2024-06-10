@@ -1,11 +1,11 @@
 @media (min-width: 3840px) and (min-height: 2160px) {
 
     :root {
-        --max-font-size: 60px;
-        --max2-font-size: 50px;
-        --mid-font-size: 47.5px;
-        --min2-font-size: 45px;
-        --min-font-size: 42.5px;
+        --max-font-size: 65px;
+        --max2-font-size: 55px;
+        --mid-font-size: 50px;
+        --min2-font-size: 47.5px;
+        --min-font-size: 45px;
     }
 
     html, body {
@@ -143,11 +143,11 @@
 @media (min-width: 1921px) and (max-width: 3839px) and (min-height: 1081px) and (max-height: 2159px) {
 
     :root {
-        --max-font-size: 50px;
-        --max2-font-size: 40px;
-        --mid-font-size: 37.5px;
-        --min2-font-size: 35px;
-        --min-font-size: 32.5px;
+        --max-font-size: 55px;
+        --max2-font-size: 45px;
+        --mid-font-size: 40px;
+        --min2-font-size: 37.5px;
+        --min-font-size: 35px;
     }
 
     html, body {
@@ -282,11 +282,11 @@
 
 @media (max-width: 1920px) and (max-height: 1080px) {
     :root {
-        --max-font-size: 40px;
-        --max2-font-size: 30px;
-        --mid-font-size: 27.5px;
-        --min2-font-size: 25px;
-        --min-font-size: 22.5px;
+        --max-font-size: 45px;
+        --max2-font-size: 35px;
+        --mid-font-size: 30px;
+        --min2-font-size: 27.5px;
+        --min-font-size: 25px;
     }
 
     html, body {
