@@ -212,42 +212,48 @@ export class App extends React.Component {
 
     adjustFontSize = () => {
         const questionText = document.querySelector('.question-text');
-        if (!questionText) return;
+        const questionFeedback = document.querySelector('.question-feedback');
+        if (!questionText || !questionFeedback) return;
     
-        const container = questionText.parentElement;
         const maxFontSize = 40; // максимальный размер шрифта
         const minFontSize = 22.5; // минимальный размер шрифта
     
-        // Функция для подсчета количества слов в тексте
         const countWords = (text) => {
             return text.trim().split(/\s+/).length;
         };
-        // Функция для установки размера шрифта исходя из количества слов
-        const setFontSize = () => {
-            const text = questionText.textContent;
+    
+        const setFontSize = (element) => {
+            const text = element.textContent;
             const wordCount = countWords(text);
             
             let fontSize;
-            // Устанавливаем размер шрифта в зависимости от количества слов
-            if (wordCount >= 0 && wordCount <= 20) {
+            if (wordCount >= 0 && wordCount <= 15) {
                 fontSize = getComputedStyle(document.documentElement).getPropertyValue('--max-font-size');
-            } else if (wordCount > 20 && wordCount <= 30) {
+            } else if (wordCount > 15 && wordCount <= 25) {
                 fontSize = getComputedStyle(document.documentElement).getPropertyValue('--max2-font-size');
-            } else if (wordCount > 30 && wordCount <= 35) {
+            } else if (wordCount > 25 && wordCount <= 35) {
                 fontSize = getComputedStyle(document.documentElement).getPropertyValue('--mid-font-size');
-            } else if (wordCount > 35 && wordCount <= 40) {
+            } else if (wordCount > 35 && wordCount <= 45) {
                 fontSize = getComputedStyle(document.documentElement).getPropertyValue('--min2-font-size');
             } else {
                 fontSize = getComputedStyle(document.documentElement).getPropertyValue('--min-font-size');
             }
-
-            questionText.style.fontSize = fontSize;
+    
+            element.style.fontSize = fontSize;
         };
     
-        setFontSize();
-        window.addEventListener('load', setFontSize);
-        window.addEventListener('resize', setFontSize);
+        setFontSize(questionText);
+        setFontSize(questionFeedback);
+        window.addEventListener('load', () => {
+            setFontSize(questionText);
+            setFontSize(questionFeedback);
+        });
+        window.addEventListener('resize', () => {
+            setFontSize(questionText);
+            setFontSize(questionFeedback);
+        });
     };
+    
     
 
     render() {
