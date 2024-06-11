@@ -1,11 +1,11 @@
 @media (min-width: 3840px) and (min-height: 2160px) {
 
     :root {
-        --max-font-size: 65px;
-        --max2-font-size: 55px;
-        --mid-font-size: 50px;
-        --min2-font-size: 47.5px;
-        --min-font-size: 45px;
+        --max-font-size: 80px;
+        --max2-font-size: 77.5px;
+        --mid-font-size: 70px;
+        --min2-font-size: 67.5px;
+        --min-font-size: 60px;
     }
 
     html, body {
@@ -14,7 +14,7 @@
 
     .App {
         text-align: center;
-        height: 100vh; /* Используем height вместо min-height */
+        height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -22,23 +22,23 @@
         background: linear-gradient(180deg, #000000, #24D193);
         color: white;
         font-family: 'Montserrat', sans-serif;
-        padding-top: 53.33px; /* Уменьшаем верхний отступ */
-        padding-bottom: 160px; /* Уменьшаем нижний отступ */
-        margin: 0; /* Удаляем отступы */
+        padding-top: 53.33px; 
+        padding-bottom: 160px;
+        margin: 0; 
     }
 
     .App-header {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 53.33px; /* Уменьшаем отступы */
+        padding: 53.33px; 
         width: 100%;
-        margin-bottom: 53.33px; /* Уменьшаем отступ снизу */
+        margin-bottom: 53.33px; 
     }
 
     h1 {
         margin: 0;
-        font-size: 8rem; /* Уменьшаем размер заголовка */
+        font-size: 8rem; 
     }
 
     p {
@@ -50,25 +50,25 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 53.33px; /* Уменьшаем верхний отступ */
-        width: 100%; /* Используем ширину 100% */
-        max-width: 3200px; /* Уменьшаем максимальную ширину */
+        margin-top: 60px; 
+        width: 150%;
+        max-width: 3600px; 
     }
 
     .question-text,
     .question-feedback {
-        width: 1066.67px; /* Уменьшаем ширину блоков вопросов и обратной связи */
-        min-height: 533.33px; /* Уменьшаем высоту блоков вопросов и обратной связи */
+        width: 1500px; 
+        min-height: 800px; 
         background-color: #ffffff;
         color: black;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 13.33px; /* Уменьшаем отступы внутри блоков */
-        font-size: 40px; /* Уменьшаем размер текста */
+        padding: 15px; 
+        font-size: 40px; 
         overflow-wrap: break-word;
-        margin: 0 26.67px; /* Уменьшаем горизонтальные отступы */
-        border-radius: 40px; /* Уменьшаем радиус скругления углов */
+        margin: 0 35px;
+        border-radius: 40px;
     }
 
 
@@ -82,11 +82,11 @@
     }
 
     .answer-input {
-        margin-top: 53.33px; /* Уменьшаем верхний отступ */
-        padding: 26.67px; /* Уменьшаем отступы */
-        font-size: 66.67px; /* Уменьшаем размер текстового ввода */
-        border-radius: 13.33px; /* Уменьшаем радиус скругления углов */
-        max-width: 800px; /* Уменьшаем максимальную ширину */
+        margin-top: 53.33px;
+        padding: 26.67px;
+        font-size: 66.67px; 
+        border-radius: 13.33px; 
+        max-width: 800px; 
         width: 100%;
     }
 
@@ -94,8 +94,8 @@
         display: flex;
         justify-content: space-around;
         width: 100%;
-        max-width: 1600px; /* Уменьшаем максимальную ширину */
-        margin-top: 53.33px; /* Уменьшаем верхний отступ */
+        max-width: 1600px; 
+        margin-top: 53.33px; 
     }
 
     .submit-button,
@@ -103,11 +103,11 @@
         background-color: #50c89c;
         color: #fff;
         border: none;
-        border-radius: 40px; /* Уменьшаем радиус скругления углов кнопок */
-        padding: 26.67px 53.33px; /* Уменьшаем отступы кнопок */
-        font-size: 66.67px; /* Уменьшаем размер текста кнопок */
+        border-radius: 40px; 
+        padding: 26.67px 53.33px; 
+        font-size: 66.67px; 
         cursor: pointer;
-        max-width: 840px; /* Уменьшаем максимальную ширину */
+        max-width: 840px;
         width: 100%;
         margin: 30px;
     }
@@ -143,11 +143,11 @@
 @media (min-width: 1921px) and (max-width: 3839px) and (min-height: 1081px) and (max-height: 2159px) {
 
     :root {
-        --max-font-size: 55px;
-        --max2-font-size: 45px;
-        --mid-font-size: 40px;
-        --min2-font-size: 37.5px;
-        --min-font-size: 35px;
+        --max-font-size: 60px;
+        --max2-font-size: 55px;
+        --mid-font-size: 50px;
+        --min2-font-size: 45px;
+        --min-font-size: 40px;
     }
 
     html, body {
@@ -164,8 +164,8 @@
         background: linear-gradient(180deg, #000000, #24D193);
         color: white;
         font-family: 'Montserrat', sans-serif;
-        padding-top: 100px;
-        padding-bottom: 120px;
+        padding-top: 70px;
+        padding-bottom: 100px;
     }
 
     .App-header {
@@ -192,14 +192,14 @@
         justify-content: center;
         align-items: center;
         margin-top: 40px;
-        width: 150%;
-        max-width: 2400px;
+        width: 200%;
+        max-width: 3000px;
     }
 
     .question-text,
     .question-feedback {
-        width: 800px;
-        min-height: 400px;
+        width: 1100px;
+        min-height: 500px;
         background-color: #ffffff;
         color: black;
         display: flex;
@@ -208,7 +208,7 @@
         padding: 10px;
         font-size: 30px;
         overflow-wrap: break-word;
-        margin: 0 20px;
+        margin: 0 30px;
         border-radius: 30px;
     }
 
@@ -281,12 +281,14 @@
 
 
 @media (max-width: 1920px) and (max-height: 1080px) {
+    
     :root {
-        --max-font-size: 45px;
-        --max2-font-size: 35px;
-        --mid-font-size: 30px;
-        --min2-font-size: 27.5px;
-        --min-font-size: 25px;
+        --max-font-size:50px; 
+        --max2-font-size: 45px; 
+        --mid-font-size: 40px; 
+        --min2-font-size: 35px; 
+        --min-font-size: 32.5px;
+        --special-font-size: 22px; 
     }
 
     html, body {
@@ -295,7 +297,7 @@
 
     .App {
         text-align: center;
-        min-height: 150vh; /* Увеличиваем высоту контейнера */
+        min-height: 150vh; 
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -303,8 +305,8 @@
         background: linear-gradient(180deg, #000000, #24D193);
         color: white;
         font-family: 'Montserrat', sans-serif;
-        padding-top: 90px; /* Увеличиваем верхний отступ */
-        padding-bottom: 90px; /* Увеличиваем нижний отступ */
+        padding-top: 60px; 
+        padding-bottom: 60px; 
     }
 
     .App-header {
@@ -318,12 +320,12 @@
 
     h1 {
         margin: 0;
-        font-size: 4.5rem; /* Увеличиваем размер заголовка */
+        font-size: 4.5rem; 
     }
 
     p {
         margin: 8px 0;
-        font-size: 2.25rem; /* Увеличиваем размер текста */
+        font-size: 2.25rem; 
     }
 
     .question-container {
@@ -331,23 +333,23 @@
         justify-content: center;
         align-items: center;
         margin-top: 20px;
-        width: 150%;
-        max-width: 1200px;
+        width: 200%; 
+        max-width: 1800px; 
     }
 
     .question-text,
     .question-feedback {
-        width: 600px; /* Увеличиваем ширину блоков вопросов и обратной связи */
-        min-height: 300px; /* Увеличиваем высоту блоков вопросов и обратной связи */
+        width: 1000px; 
+        min-height: 400px; 
         background-color: #ffffff;
         color: black;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 5px;
-        font-size: 22.5px; /* Увеличиваем размер текста в блоках */
+        padding: 10px; 
+        font-size: 37.5px; 
         overflow-wrap: break-word;
-        margin: 0 10px;
+        margin: 0 20px;
         border-radius: 15px;
     }
 
@@ -363,9 +365,9 @@
     .answer-input {
         margin-top: 20px;
         padding: 15px;
-        font-size: 37.5px; /* Увеличиваем размер текстового ввода */
-        border-radius: 7.5px; /* Можно также увеличить скругление углов */
-        max-width: 450px; /* Увеличиваем максимальную ширину */
+        font-size: 37.5px; 
+        border-radius: 7.5px;
+        max-width: 450px; 
         width: 100%;
     }
 
@@ -373,7 +375,7 @@
         display: flex;
         justify-content: space-around;
         width: 100%;
-        max-width: 900px; /* Увеличиваем максимальную ширину кнопок */
+        max-width: 900px; 
         margin-top: 20px;
     }
 
@@ -382,12 +384,12 @@
         background-color: #50c89c;
         color: #fff;
         border: none;
-        border-radius: 22.5px; /* Увеличиваем радиус скругления углов кнопок */
-        padding: 15px 30px; /* Увеличиваем отступы кнопок */
-        font-size: 37.5px; /* Увеличиваем размер текста кнопок */
+        border-radius: 22.5px; 
+        padding: 15px 30px; 
+        font-size: 37.5px; 
         cursor: pointer;
         color: #ffffff;
-        max-width: 315px; /* Увеличиваем максимальную ширину кнопок */
+        max-width: 315px; 
         width: 100%;
     }
 
@@ -418,6 +420,7 @@
         width: 100%;
     }
 }
+
 
 @media (max-width: 1080px) and (max-height: 1920px) {
 
@@ -460,18 +463,18 @@
 
     .question-container {
         display: flex;
-        flex-direction: column; /* Располагаем блоки вопросов и комментариев друг под другом */
-        justify-content: center; /* Выравниваем по центру */
+        flex-direction: column;
+        justify-content: center; 
         align-items: center;
         margin-top: 20px;
-        width: 90%; /* Ширина блока 90% от родительского контейнера */
-        max-width: 90%; /* Максимальная ширина блока 90% от родительского контейнера */
+        width: 90%; 
+        max-width: 90%;
     }
 
     .question-text,
     .question-feedback {
-        width: 100%; /* Ширина блоков вопросов и комментариев равна 100% от родительского контейнера */
-        max-width: 100%; /* Максимальная ширина блоков вопросов и комментариев равна 100% от родительского контейнера */
+        width: 100%; 
+        max-width: 100%; 
         min-height: 200px;
         background-color: #ffffff;
         color: black;
@@ -481,7 +484,7 @@
         padding: 5px;
         font-size: 15px;
         overflow-wrap: break-word;
-        margin: 10px 0; /* Отступы сверху и снизу для блоков вопросов и комментариев */
+        margin: 10px 0; 
         border-radius: 15px;
     }
 
@@ -530,13 +533,13 @@
         margin: 10px;
     }
 
-        .submit-button:hover,
-        .next-button:hover {
-            background-color: #3ba97e;
-        }
+    .submit-button:hover,
+    .next-button:hover {
+        background-color: #3ba97e;
+    }
 
-        .submit-button:disabled {
-            background-color: #000000;
-            cursor: not-allowed;
-        }
+    .submit-button:disabled {
+        background-color: #000000;
+        cursor: not-allowed;
+    }
 }
