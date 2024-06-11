@@ -163,7 +163,7 @@ export class App extends React.Component {
         correctAnswers = currentQuestion.questionAnswer.split(';').map(ans => ans.trim().toLowerCase());
 
         let feedbackMessage;
-        if (correctAnswers.includes(userAnswer)) {
+        if (correctAnswers.includes(userAnswer.trim().toLowerCase())) {
             feedbackMessage = '<span class="bold-feedback">Правильный ответ!</span> ' + currentQuestion.questionComment;
             this._send_action_value('read', 'Правильный ответ! ');
         } else {
