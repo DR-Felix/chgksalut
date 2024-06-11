@@ -163,7 +163,7 @@ export class App extends React.Component {
         correctAnswers = currentQuestion.questionAnswer.split(';').map(ans => ans.trim().toLowerCase());
 
         let feedbackMessage;
-        if (correctAnswers.includes(userAnswer.trim().toLowerCase())) {
+        if (correctAnswers.includes(userAnswer)) {
             feedbackMessage = '<span class="bold-feedback">Правильный ответ!</span> ' + currentQuestion.questionComment;
             this._send_action_value('read', 'Правильный ответ! ');
         } else {
@@ -210,13 +210,10 @@ export class App extends React.Component {
         }
     };
 
-    adjustFontSize = () => {
+    adjustFontSize = (questionId) => {
         const questionText = document.querySelector('.question-text');
         const questionFeedback = document.querySelector('.question-feedback');
         if (!questionText || !questionFeedback) return;
-    
-        const maxFontSize = 40; // максимальный размер шрифта
-        const minFontSize = 22.5; // минимальный размер шрифта
     
         const countWords = (text) => {
             return text.trim().split(/\s+/).length;
@@ -225,18 +222,22 @@ export class App extends React.Component {
         const setFontSize = (element) => {
             const text = element.textContent;
             const wordCount = countWords(text);
-            
+    
             let fontSize;
-            if (wordCount >= 0 && wordCount <= 15) {
-                fontSize = getComputedStyle(document.documentElement).getPropertyValue('--max-font-size');
-            } else if (wordCount > 15 && wordCount <= 25) {
-                fontSize = getComputedStyle(document.documentElement).getPropertyValue('--max2-font-size');
-            } else if (wordCount > 25 && wordCount <= 35) {
-                fontSize = getComputedStyle(document.documentElement).getPropertyValue('--mid-font-size');
-            } else if (wordCount > 35 && wordCount <= 45) {
-                fontSize = getComputedStyle(document.documentElement).getPropertyValue('--min2-font-size');
+            if (questionId === '664a401c9eaf5332e1df0682' || questionId === '664a401c9eaf5332e1df05ee') {
+                fontSize = getComputedStyle(document.documentElement).getPropertyValue('--special-font-size');
             } else {
-                fontSize = getComputedStyle(document.documentElement).getPropertyValue('--min-font-size');
+                if (wordCount >= 0 && wordCount <= 15) {
+                    fontSize = getComputedStyle(document.documentElement).getPropertyValue('--max-font-size');
+                } else if (wordCount > 15 && wordCount <= 25) {
+                    fontSize = getComputedStyle(document.documentElement).getPropertyValue('--max2-font-size');
+                } else if (wordCount > 25 && wordCount <= 35) {
+                    fontSize = getComputedStyle(document.documentElement).getPropertyValue('--mid-font-size');
+                } else if (wordCount > 35 && wordCount <= 45) {
+                    fontSize = getComputedStyle(document.documentElement).getPropertyValue('--min2-font-size');
+                } else {
+                    fontSize = getComputedStyle(document.documentElement).getPropertyValue('--min-font-size');
+                }
             }
     
             element.style.fontSize = fontSize;
@@ -255,7 +256,7 @@ export class App extends React.Component {
     };
     
     
-
+    
     render() {
         const { currentQuestionIndex, answer, feedback, hasAnswered } = this.state;
         window.addEventListener('keydown', (event) => {
