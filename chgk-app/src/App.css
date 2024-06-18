@@ -20,7 +20,7 @@ html, body {
     align-items: center;
     background: linear-gradient(180deg, #000000, #24D193);
     color: white;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Mont', sans-serif;
     padding-top: 0.65vw;
     padding-bottom: 0.65vw;
 }
@@ -160,7 +160,7 @@ p {
         align-items: center;
         background: linear-gradient(180deg, #000000, #24D193);
         color: white;
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Mont', sans-serif;
         padding-top: 4.8%;
         height: 100%;
     }
