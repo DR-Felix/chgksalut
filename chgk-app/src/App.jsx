@@ -20,7 +20,8 @@ export class App extends React.Component {
         super(props);
 
         this.state = {
-            currentQuestionIndex: this.getRandomIndex(),
+            currentQuestionIndex: 0,
+            usedQuestions: new Set(),
             answer: '',
             feedback: '',
             attemptCount: 0,
@@ -28,6 +29,8 @@ export class App extends React.Component {
             hasAnswered: false,
             isKeyboardVisible: false, // Флаг видимости виртуальной клавиатуры
         };
+
+        this.state.currentQuestionIndex = this.getRandomIndex();
 
         this.assistant = initializeAssistant(() => this.getStateForAssistant());
 
@@ -76,7 +79,7 @@ export class App extends React.Component {
         window.addEventListener('focus', this.handleFocus);
         console.log('componentDidUpdate');
         window.addEventListener('blur', this.handleBlur);
-     }
+    }
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.adjustFontSize);
@@ -86,8 +89,28 @@ export class App extends React.Component {
         window.removeEventListener('blur', this.handleBlur);
     }
 
-    getRandomIndex() {
-        return Math.floor(Math.random() * questions.length);
+    getRandomIndex = () => {
+        const { usedQuestions } = this.state;
+
+        // Если все вопросы уже использованы, сбрасываем список
+        if (usedQuestions.size === questions.length) {
+            this.setState({ usedQuestions: new Set() });
+        }
+
+        // Получаем индексы всех вопросов, которые еще не использованы
+        const availableIndices = questions
+            .map((_, index) => index)
+            .filter(index => !usedQuestions.has(index));
+
+        // Выбираем случайный индекс из доступных
+        const randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+
+        // Добавляем выбранный индекс в набор использованных
+        this.setState(prevState => ({
+            usedQuestions: prevState.usedQuestions.add(randomIndex)
+        }));
+
+        return randomIndex;
     }
 
     // Функция для обработки события фокуса на поле ввода
@@ -152,26 +175,30 @@ export class App extends React.Component {
         });
     }
 
-
     check_answer(action) {
         console.log('check_answer', action);
         let { currentQuestionIndex, answer } = this.state;
         const currentQuestion = questions[currentQuestionIndex];
-        let correctAnswers = currentQuestion.questionAnswer.split(';').map(ans => ans.trim());
-        const userAnswer = action.answer || answer.trim().toLowerCase();
-        const correctAnswer = correctAnswers[0];
-        correctAnswers = currentQuestion.questionAnswer.split(';').map(ans => ans.trim().toLowerCase());
+        let correctAnswers = currentQuestion.questionAnswer.split(';').map(ans => ans.trim().toLowerCase());
+        let corAnswers = currentQuestion.questionAnswer.split(';');
+
+        // Удаляем точку в конце ответа пользователя, если она есть
+        let userAnswer = (action.answer || answer).trim().toLowerCase();
+        if (userAnswer.endsWith('.')) {
+            userAnswer = userAnswer.slice(0, -1);
+        }
+
+        const correctAnswer = corAnswers[0];
 
         let feedbackMessage;
         if (correctAnswers.includes(userAnswer.trim().toLowerCase())) {
             feedbackMessage = '<span class="bold-feedback">Правильный ответ!</span> ' + currentQuestion.questionComment;
             this._send_action_value('read', 'Правильный ответ! ');
         } else {
-            if (userAnswer == "") {
+            if (userAnswer === "") {
                 feedbackMessage = `<span class="bold-feedback">Правильный ответ:</span> ${correctAnswer}. ${currentQuestion.questionComment}`;
                 this._send_action_value('read', 'Правильный ответ: ' + correctAnswer);
-            }
-            else {
+            } else {
                 feedbackMessage = `<span class="bold-feedback">Неправильный ответ.</span> <span class="bold-feedback">Правильный ответ:</span> ${correctAnswer}. ${currentQuestion.questionComment}`;
                 this._send_action_value('read', 'Неправильный ответ. Правильный ответ: ' + correctAnswer);
             }
@@ -182,6 +209,7 @@ export class App extends React.Component {
             hasAnswered: true,
         });
     }
+
 
     next_question() {
         this.setState({
@@ -214,15 +242,15 @@ export class App extends React.Component {
         const questionText = document.querySelector('.question-text');
         const questionFeedback = document.querySelector('.question-feedback');
         if (!questionText || !questionFeedback) return;
-    
+
         const countWords = (text) => {
             return text.trim().split(/\s+/).length;
         };
-    
+
         const setFontSize = (element) => {
             const text = element.textContent;
             const wordCount = countWords(text);
-    
+
             let fontSize;
             if (questionId === '664a401c9eaf5332e1df0682' || questionId === '664a401c9eaf5332e1df05ee') {
                 fontSize = getComputedStyle(document.documentElement).getPropertyValue('--special-font-size');
@@ -239,24 +267,14 @@ export class App extends React.Component {
                     fontSize = getComputedStyle(document.documentElement).getPropertyValue('--min-font-size');
                 }
             }
-    
+
             element.style.fontSize = fontSize;
         };
-    
+
         setFontSize(questionText);
         setFontSize(questionFeedback);
-        window.addEventListener('load', () => {
-            setFontSize(questionText);
-            setFontSize(questionFeedback);
-        });
-        window.addEventListener('resize', () => {
-            setFontSize(questionText);
-            setFontSize(questionFeedback);
-        });
     };
-    
-    
-    
+
     render() {
         const { currentQuestionIndex, answer, feedback, hasAnswered } = this.state;
         window.addEventListener('keydown', (event) => {
