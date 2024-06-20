@@ -1,14 +1,25 @@
+@font-face {
+    font-family: "SB Sans Interface";
+    src: url("https://db.onlinewebfonts.com/t/37086b994764dba84b2ee0f1083bfeed.eot");
+    src: url("https://db.onlinewebfonts.com/t/37086b994764dba84b2ee0f1083bfeed.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/37086b994764dba84b2ee0f1083bfeed.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/37086b994764dba84b2ee0f1083bfeed.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/37086b994764dba84b2ee0f1083bfeed.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/37086b994764dba84b2ee0f1083bfeed.svg#SB Sans Interface")format("svg");
+}
+
 :root {
     --max-font-size: 1.95vw;
-    --max2-font-size: 1.79vw;
-    --mid-font-size: 1.63vw;
-    --min2-font-size: 1.47vw;
-    --min-font-size: 1.30vw;
-    --special-font-size: 0.65vw;
+    --max2-font-size: 1.8vw;
+    --mid-font-size: 1.7vw;
+    --min2-font-size: 1.5vw;
+    --min-font-size: 1.40vw;
+    --special-font-size: 0.75vw;
 }
 
 html, body {
     overflow: hidden;
+    font-family: "SB Sans Interface";
 }
 
 .App {
@@ -20,7 +31,7 @@ html, body {
     align-items: center;
     background: linear-gradient(180deg, #000000, #24D193);
     color: white;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "SB Sans Interface";
     padding-top: 0.65vw;
     padding-bottom: 0.65vw;
 }
@@ -85,6 +96,7 @@ p {
     border-radius: 0.49vw;
     max-width: 19.53vw;
     width: 100%;
+    font-family: "SB Sans Interface";
 }
 
 .buttons {
@@ -107,6 +119,7 @@ p {
     color: #ffffff;
     max-width: 19.53vw;
     width: 80%;
+    font-family: "SB Sans Interface";
 }
 
 .submit-button:hover,
@@ -149,6 +162,7 @@ p {
 
     html, body {
         overflow: auto;
+        font-family: "SB Sans Interface";
     }
 
     .App {
@@ -160,7 +174,7 @@ p {
         align-items: center;
         background: linear-gradient(180deg, #000000, #24D193);
         color: white;
-        font-family: 'Montserrat', sans-serif;
+        font-family: "SB Sans Interface";
         padding-top: 4.8%;
         height: 100%;
     }
@@ -250,6 +264,7 @@ p {
         max-width: 36.23%;
         width: 90%;
         margin-bottom: 16.9%;
+        font-family: "SB Sans Interface";
     }
 
     .submit-button:hover,
